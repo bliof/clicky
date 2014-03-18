@@ -1,11 +1,14 @@
 .clicky-checkbox {
+    display: inline-block;
+
     input {
-        margin: 4px 4px 4px -15px;
+        margin: 3px 0.5ex;
 
         & + span {
+            margin-left: -23px;
             display: inline-block;
+            vertical-align: middle;
             padding: 9px;
-            margin-bottom: 0px;
 
             background-color: #fafafa;
             border: 1px solid #cacece;
@@ -13,8 +16,6 @@
             box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05);
 
             position: relative;
-            float: left;
-            clear: both;
         }
 
         & + span:active, &:checked + span:active {
