@@ -1,13 +1,16 @@
-.clicky-checkbox {
+label.clicky-checkbox {
     display: inline-block;
 
     input {
-        margin: 3px 0.5ex;
+        margin: 3px;
+        height: 12px;
+        width: 12px;
+        vertical-align: bottom;
 
         & + span {
             margin-left: -23px;
             display: inline-block;
-            vertical-align: middle;
+            vertical-align: bottom;
             padding: 9px;
             line-height: 20px;
 
