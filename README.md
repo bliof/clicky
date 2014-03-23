@@ -1,6 +1,6 @@
 #clicky
 
-Clicky - customizable checkboxes and radio buttons
+Clicky - customizable checkboxes and radio buttons.
 
 ##Getting Started
 
