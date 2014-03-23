@@ -1,4 +1,4 @@
-label.clicky-checkbox {
+@mixin empty-clicky-checkbox($size, $align: bottom) {
     display: inline-block;
 
     input {
@@ -6,11 +6,11 @@ label.clicky-checkbox {
         margin: 3px;
         height: 12px;
         width: 12px;
-        vertical-align: bottom; /* should be the same as the one of the span */
+        vertical-align: $align; /* should be the same as the one of the span */
 
         & + span {
             display: inline-block;
-            vertical-align: bottom;
+            vertical-align: $align;
 
             /*
                 Moving the span over the input, not the other way round.
@@ -18,15 +18,15 @@ label.clicky-checkbox {
             */
             margin-left: -23px;
 
-            width: 18px;
-            height: 18px;
+            width: $size;
+            height: $size;
             text-align: center;
 
             /*
                 The line-height of the label will change the one of the span,
                 so let's make the value fixed.
             */
-            line-height: 18px;
+            line-height: $size;
 
             /*
                 Some default styling. Overwrite them at will,
@@ -55,7 +55,13 @@ label.clicky-checkbox {
             border: 1px solid #adb8c0;
             color: #99a1a7;
         }
+    }
+}
 
+label.clicky-checkbox {
+    @include empty-clicky-checkbox(18px);
+
+    input {
         &:checked + span:after {
             content: '\2713'; /* check symbol */
             font-family: Arial, Helvetica, sans-serif;
