@@ -10,6 +10,7 @@
 
         & + span {
             display: inline-block;
+            box-sizing: content-box;
             vertical-align: $align;
 
             /*
