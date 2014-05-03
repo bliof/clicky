@@ -1,4 +1,4 @@
-@mixin empty-clicky-checkbox($size, $align: bottom) {
+@mixin empty-clicky-checkbox($size, $align: baseline) {
     display: inline-block;
 
     input {
@@ -24,12 +24,6 @@
             text-align: center;
 
             /*
-                The line-height of the label will change the one of the span,
-                so let's make the value fixed.
-            */
-            line-height: $size - 2px;
-
-            /*
                 Some default styling. Overwrite them at will,
                 e.g. this looks cool: border-radius: 0; box-shadow: none;
             */
@@ -37,6 +31,26 @@
             border: 1px solid #cacece;
             border-radius: 3px;
             box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05); /* shadow at the bottom of the checkbox */
+
+            /*
+                The line-height of the label will change the one of the span,
+                so let's make the value fixed.
+            */
+            line-height: $size - 2px;
+
+            /*
+                Same as the line-height..
+            */
+            font-size: $size - 4px;
+
+            /*
+                The whitespace is needed, otherwise the span goes for a walk..
+            */
+            white-space: pre;
+
+            &:after {
+                content: '\0020'; /* whitespace */
+            }
         }
 
         /* The pressed in effect. */
@@ -67,7 +81,6 @@ label.clicky-checkbox {
             content: '\2713'; /* check symbol */
             font-family: Arial, Helvetica, sans-serif;
             font-style: bold;
-            font-size: 16px;
             color: #64696E;
         }
     }
