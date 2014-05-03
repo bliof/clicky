@@ -19,15 +19,15 @@
             */
             margin-left: -23px;
 
-            width: $size;
-            height: $size;
+            width: $size - 2px;
+            height: $size - 2px;
             text-align: center;
 
             /*
                 The line-height of the label will change the one of the span,
                 so let's make the value fixed.
             */
-            line-height: $size;
+            line-height: $size - 2px;
 
             /*
                 Some default styling. Overwrite them at will,
@@ -60,7 +60,7 @@
 }
 
 label.clicky-checkbox {
-    @include empty-clicky-checkbox(18px);
+    @include empty-clicky-checkbox(20px);
 
     input {
         &:checked + span:after {
