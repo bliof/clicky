@@ -1,7 +1,5 @@
-@mixin empty-clicky-checkbox($size, $align: baseline) {
+@mixin clicky-base($size, $align) {
     display: inline-block;
-
-    @include clicky-checkbox-set-size($size);
 
     input {
         /* Making the size and position of the input fixed. */
@@ -24,15 +22,6 @@
             text-align: center;
 
             /*
-                Some default styling. Overwrite them at will,
-                e.g. this looks cool: border-radius: 0; box-shadow: none;
-            */
-            background-color: #fafafa;
-            border: 1px solid #cacece;
-            border-radius: 3px;
-            box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05); /* shadow at the bottom of the checkbox */
-
-            /*
                 The whitespace is needed, otherwise the span goes for a walk..
             */
             white-space: pre;
@@ -45,12 +34,8 @@
 
             &:after {
                 content: '\0020'; /* whitespace */
+                content: '\200B'; /* zero-width-space */
             }
-        }
-
-        /* The pressed in effect. */
-        & + span:active, &:checked + span:active {
-            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         /* Tabbing outline. (messy things) */
@@ -58,6 +43,29 @@
             outline: 3px solid rgba(94, 158, 215, 0.4); /* safary, firefox */
             outline: 3px auto -webkit-focus-ring-color; /* chrome, opera */
             outline-offset: -2px;
+        }
+    }
+}
+
+@mixin empty-clicky-checkbox($size, $align: baseline) {
+    @include clicky-base($size, $align);
+    @include clicky-checkbox-set-size($size);
+
+    input {
+        & + span {
+            /*
+                Some default styling. Overwrite them at will,
+                e.g. this looks cool: border-radius: 0; box-shadow: none;
+            */
+            background-color: #fafafa;
+            border: 1px solid #cacece;
+            border-radius: 3px;
+            box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05); /* shadow at the bottom of the checkbox */
+        }
+
+        /* The pressed in effect. */
+        & + span:active, &:checked + span:active {
+            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         &:checked + span {
@@ -100,4 +108,79 @@ label.clicky-checkbox {
 
 label.clicky-checkbox.large {
     @include clicky-checkbox-set-size(32px);
+}
+
+@mixin empty-clicky-radio($size, $align: baseline) {
+    @include clicky-base($size, $align);
+    @include clicky-radio-set-size($size);
+
+    input {
+        & + span {
+            -webkit-appearance: none;
+            background-color: #fafafa;
+            border: 1px solid #cacece;
+            box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05); /* shadow at the bottom of the checkbox */
+            border-radius: 50px;
+            display: inline-block;
+
+            vertical-align: middle;
+        }
+    }
+}
+
+@mixin clicky-radio-set-size($size) {
+    $inner-diameter: ceil(0.6 * $size);
+
+    input {
+        & + span {
+            height: $size - 2px;
+            width: $size - 2px;
+
+            /*
+                The line-height of the label will change the one of the span,
+                so let's make the value fixed.
+            */
+            line-height: $inner-diameter;
+
+            /*
+                Same as the line-height..
+            */
+            font-size: $inner-diameter;
+            position: relative;
+        }
+
+        & + span:after {
+            position: absolute;
+
+            height: $inner-diameter;
+            width: $inner-diameter;
+
+            top: 0.5 * ($size - $inner-diameter - 2px);
+            left: 0.5 * ($size - $inner-diameter - 2px);
+        }
+    }
+}
+
+label.clicky-radio {
+    @include empty-clicky-radio(20px);
+
+    input {
+        &:checked + span:after {
+            border-radius: 50px;
+            background: #99a1a7;
+            box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+            text-shadow: 0px;
+        }
+
+        &:checked + span {
+            background-color: #e9ecee;
+            color: #99a1a7;
+            border: 1px solid #adb8c0;
+            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+label.large.clicky-radio {
+    @include clicky-radio-set-size(32px);
 }
