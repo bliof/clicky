@@ -19,8 +19,7 @@
             */
             margin-left: -23px;
 
-            width: $size - 2px;
-            height: $size - 2px;
+            @include clicky-checkbox-set-size($size);
             text-align: center;
 
             /*
@@ -31,17 +30,6 @@
             border: 1px solid #cacece;
             border-radius: 3px;
             box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05); /* shadow at the bottom of the checkbox */
-
-            /*
-                The line-height of the label will change the one of the span,
-                so let's make the value fixed.
-            */
-            line-height: $size - 2px;
-
-            /*
-                Same as the line-height..
-            */
-            font-size: $size - 4px;
 
             /*
                 The whitespace is needed, otherwise the span goes for a walk..
@@ -77,6 +65,22 @@
             color: #99a1a7;
         }
     }
+}
+
+@mixin clicky-checkbox-set-size($size) {
+    width: $size - 2px;
+    height: $size - 2px;
+
+    /*
+        The line-height of the label will change the one of the span,
+        so let's make the value fixed.
+    */
+    line-height: $size - 2px;
+
+    /*
+        Same as the line-height..
+    */
+    font-size: $size - 4px;
 }
 
 label.clicky-checkbox {
