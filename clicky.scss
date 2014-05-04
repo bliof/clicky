@@ -1,6 +1,8 @@
 @mixin empty-clicky-checkbox($size, $align: baseline) {
     display: inline-block;
 
+    @include clicky-checkbox-set-size($size);
+
     input {
         /* Making the size and position of the input fixed. */
         margin: 3px;
@@ -19,7 +21,6 @@
             */
             margin-left: -23px;
 
-            @include clicky-checkbox-set-size($size);
             text-align: center;
 
             /*
@@ -68,19 +69,21 @@
 }
 
 @mixin clicky-checkbox-set-size($size) {
-    width: $size - 2px;
-    height: $size - 2px;
+    input + span {
+        width: $size - 2px;
+        height: $size - 2px;
 
-    /*
-        The line-height of the label will change the one of the span,
-        so let's make the value fixed.
-    */
-    line-height: $size - 2px;
+        /*
+            The line-height of the label will change the one of the span,
+            so let's make the value fixed.
+        */
+        line-height: $size - 2px;
 
-    /*
-        Same as the line-height..
-    */
-    font-size: $size - 4px;
+        /*
+            Same as the line-height..
+        */
+        font-size: $size - 4px;
+    }
 }
 
 label.clicky-checkbox {
@@ -93,4 +96,8 @@ label.clicky-checkbox {
             color: #64696E;
         }
     }
+}
+
+label.clicky-checkbox.large {
+    @include clicky-checkbox-set-size(32px);
 }
