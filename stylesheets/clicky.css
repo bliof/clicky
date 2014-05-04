@@ -7,7 +7,6 @@ label.clicky-checkbox {
     width: 12px;
     vertical-align: baseline;
     /* should be the same as the one of the span */
-    /* The pressed in effect. */
     /* Tabbing outline. (messy things) */ }
     label.clicky-checkbox input + span {
       display: inline-block;
@@ -18,9 +17,42 @@ label.clicky-checkbox {
           Reason: the input is not moved..
       */
       margin-left: -23px;
-      width: 18px;
-      height: 18px;
       text-align: center;
+      /*
+          The whitespace is needed, otherwise the span goes for a walk..
+      */
+      white-space: pre;
+      /*
+          Use the same font for the space and the check symbol because the span
+          will start to jump up/down. (happens when the checkbox is small e.g. 18px)
+      */
+      font-family: Arial, Helvetica, sans-serif; }
+      label.clicky-checkbox input + span:after {
+        content: '\0020';
+        /* whitespace */
+        content: '\200B';
+        /* zero-width-space */ }
+    label.clicky-checkbox input:focus + span {
+      outline: 3px solid rgba(94, 158, 215, 0.4);
+      /* safary, firefox */
+      outline: 3px auto -webkit-focus-ring-color;
+      /* chrome, opera */
+      outline-offset: -2px; }
+  label.clicky-checkbox input + span {
+    width: 18px;
+    height: 18px;
+    /*
+        The line-height of the label will change the one of the span,
+        so let's make the value fixed.
+    */
+    line-height: 18px;
+    /*
+        Same as the line-height..
+    */
+    font-size: 16px; }
+  label.clicky-checkbox input {
+    /* The pressed in effect. */ }
+    label.clicky-checkbox input + span {
       /*
           Some default styling. Overwrite them at will,
           e.g. this looks cool: border-radius: 0; box-shadow: none;
@@ -29,31 +61,9 @@ label.clicky-checkbox {
       border: 1px solid #cacece;
       border-radius: 3px;
       box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05);
-      /* shadow at the bottom of the checkbox */
-      /*
-          The line-height of the label will change the one of the span,
-          so let's make the value fixed.
-      */
-      line-height: 18px;
-      /*
-          Same as the line-height..
-      */
-      font-size: 16px;
-      /*
-          The whitespace is needed, otherwise the span goes for a walk..
-      */
-      white-space: pre; }
-      label.clicky-checkbox input + span:after {
-        content: '\0020';
-        /* whitespace */ }
+      /* shadow at the bottom of the checkbox */ }
     label.clicky-checkbox input + span:active, label.clicky-checkbox input:checked + span:active {
       box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1); }
-    label.clicky-checkbox input:focus + span {
-      outline: 3px solid rgba(94, 158, 215, 0.4);
-      /* safary, firefox */
-      outline: 3px auto -webkit-focus-ring-color;
-      /* chrome, opera */
-      outline-offset: -2px; }
     label.clicky-checkbox input:checked + span {
       background-color: #e9ecee;
       border: 1px solid #adb8c0;
@@ -61,6 +71,117 @@ label.clicky-checkbox {
   label.clicky-checkbox input:checked + span:after {
     content: '\2713';
     /* check symbol */
-    font-family: Arial, Helvetica, sans-serif;
     font-style: bold;
     color: #64696E; }
+
+label.clicky-checkbox.large input + span {
+  width: 30px;
+  height: 30px;
+  /*
+      The line-height of the label will change the one of the span,
+      so let's make the value fixed.
+  */
+  line-height: 30px;
+  /*
+      Same as the line-height..
+  */
+  font-size: 28px; }
+
+label.clicky-radio {
+  display: inline-block; }
+  label.clicky-radio input {
+    /* Making the size and position of the input fixed. */
+    margin: 3px;
+    height: 12px;
+    width: 12px;
+    vertical-align: baseline;
+    /* should be the same as the one of the span */
+    /* Tabbing outline. (messy things) */ }
+    label.clicky-radio input + span {
+      display: inline-block;
+      box-sizing: content-box;
+      vertical-align: baseline;
+      /*
+          Moving the span over the input, not the other way round.
+          Reason: the input is not moved..
+      */
+      margin-left: -23px;
+      text-align: center;
+      /*
+          The whitespace is needed, otherwise the span goes for a walk..
+      */
+      white-space: pre;
+      /*
+          Use the same font for the space and the check symbol because the span
+          will start to jump up/down. (happens when the checkbox is small e.g. 18px)
+      */
+      font-family: Arial, Helvetica, sans-serif; }
+      label.clicky-radio input + span:after {
+        content: '\0020';
+        /* whitespace */
+        content: '\200B';
+        /* zero-width-space */ }
+    label.clicky-radio input:focus + span {
+      outline: 3px solid rgba(94, 158, 215, 0.4);
+      /* safary, firefox */
+      outline: 3px auto -webkit-focus-ring-color;
+      /* chrome, opera */
+      outline-offset: -2px; }
+  label.clicky-radio input + span {
+    height: 18px;
+    width: 18px;
+    /*
+        The line-height of the label will change the one of the span,
+        so let's make the value fixed.
+    */
+    line-height: 12px;
+    /*
+        Same as the line-height..
+    */
+    font-size: 12px;
+    position: relative; }
+  label.clicky-radio input + span:after {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top: 3px;
+    left: 3px; }
+  label.clicky-radio input + span {
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: inset 0px -15px 10px -5px rgba(0, 0, 0, 0.05);
+    /* shadow at the bottom of the checkbox */
+    border-radius: 50px;
+    display: inline-block;
+    vertical-align: middle; }
+  label.clicky-radio input:checked + span:after {
+    border-radius: 50px;
+    background: #99a1a7;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0px; }
+  label.clicky-radio input:checked + span {
+    background-color: #e9ecee;
+    color: #99a1a7;
+    border: 1px solid #adb8c0;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1); }
+
+label.large.clicky-radio input + span {
+  height: 30px;
+  width: 30px;
+  /*
+      The line-height of the label will change the one of the span,
+      so let's make the value fixed.
+  */
+  line-height: 20px;
+  /*
+      Same as the line-height..
+  */
+  font-size: 20px;
+  position: relative; }
+label.large.clicky-radio input + span:after {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 5px;
+  left: 5px; }

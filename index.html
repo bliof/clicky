@@ -37,26 +37,60 @@
           Concept
         </h2>
 
-        <div>
-          <h3>You do:</h3>
+        <div class="example">
+          <div>
+            <h3>You do:</h3>
 
-          <div class="highlight">
-            <pre><span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"clicky-checkbox"</span><span class="nt">&gt;</span>
+            <pre class="highlight"><span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"clicky-checkbox"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;span&gt;&lt;/span&gt;</span>
   A Checkbox
 <span class="nt">&lt;/label&gt;</span></pre>
           </div>
+
+          <div>
+            <h3>You get:</h3>
+
+            <label class="clicky-checkbox">
+              <input type="checkbox"/>
+              <span></span>
+              A Checkbox
+            </label>
+          </div>
         </div>
 
-        <div>
-          <h3>You get:</h3>
+        <div class="example">
+          <div>
+            <h3>You do:</h3>
 
-          <label class="clicky-checkbox">
-            <input type="checkbox"/>
-            <span></span>
-            A Checkbox
-          </label>
+            <pre class="highlight"><span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"clicky-radio"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"radio-1"</span> <span class="na">name=</span><span class="s">"radio-1"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;span&gt;&lt;/span&gt;</span>
+  First Option
+<span class="nt">&lt;/label&gt;</span>
+
+<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"clicky-radio"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">id=</span><span class="s">"radio-1"</span> <span class="na">name=</span><span class="s">"radio-1"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;span&gt;&lt;/span&gt;</span>
+  Second Option
+<span class="nt">&lt;/label&gt;</span></pre>
+          </div>
+
+          <div>
+            <h3>You get:</h3>
+
+            <label class="clicky-radio">
+              <input type="radio" id="radio-1" name="radio-1"/>
+              <span></span>
+              First Option
+            </label>
+
+            <label class="clicky-radio">
+              <input type="radio" id="radio-1" name="radio-1"/>
+              <span></span>
+              Second Option
+            </label>
+          </div>
         </div>
       </section>
     </div>

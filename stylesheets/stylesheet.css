@@ -173,6 +173,7 @@ pre, code {
 pre {
   width: 100%;
   padding: 10px;
+  border: 1px solid whitesmoke;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
   overflow: auto;
 }
@@ -252,6 +253,10 @@ td {
 form {
   background: #f2f2f2;
   padding: 20px;
+}
+
+.example {
+  margin-bottom: 50px;
 }
 
 /*******************************************************************************
@@ -353,7 +358,7 @@ Full-Width Styles
 }
 
 #main_content_wrap {
-  background: #f2f2f2;
+  background: white;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
 }
@@ -365,8 +370,6 @@ Full-Width Styles
 #footer_wrap {
   background: #212121;
 }
-
-
 
 /*******************************************************************************
 Small Device Styles
@@ -419,5 +422,4 @@ Small Device Styles
     max-width: 480px;
     font-size: 11px;
   }
-
 }
