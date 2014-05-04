@@ -48,6 +48,12 @@
             */
             white-space: pre;
 
+            /*
+                Use the same font for the space and the check symbol because the span
+                will start to jump up/down. (happens when the checkbox is small e.g. 18px)
+            */
+            font-family: Arial, Helvetica, sans-serif;
+
             &:after {
                 content: '\0020'; /* whitespace */
             }
@@ -79,7 +85,6 @@ label.clicky-checkbox {
     input {
         &:checked + span:after {
             content: '\2713'; /* check symbol */
-            font-family: Arial, Helvetica, sans-serif;
             font-style: bold;
             color: #64696E;
         }
